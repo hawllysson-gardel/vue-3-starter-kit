@@ -1,0 +1,30 @@
+name: Release TAG
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  code:
+    name: Release TAG
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Create Release TAG 🚀
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_BOT_TOKEN }}
+        run: npm run release

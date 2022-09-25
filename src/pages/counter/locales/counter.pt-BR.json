@@ -1,0 +1,7 @@
+{
+  "car": "carro | carros",
+  "apple": "sem maçãs | uma maçã | {count} maçãs",
+  "banana": "sem bananas | {n} banana | {n} bananas",
+  "even": "Ímpar",
+  "odd": "Par"
+}

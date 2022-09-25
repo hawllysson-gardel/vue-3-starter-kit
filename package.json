@@ -1,0 +1,86 @@
+{
+  "name": "vue-3-starter-kit",
+  "version": "1.0.0",
+  "author": "Hawllysson Gardel Queiroz Almeida",
+  "license": "MIT",
+  "private": true,
+  "lint-staged": {
+    "src/**/*.+(js|vue)": [
+      "eslint --fix"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hawllysson-gardel/vue-3-starter-kit"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev-unit": "vitest --dir src",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.js",
+    "clear": "rm -rf ./node_modules ./coverage ./dist ./.husky/_",
+    "lint": "eslint 'src/**/*.{js,vue,html,md}'",
+    "prettier": "eslint --fix 'src/**/*.{js,vue,html,md}'",
+    "unit": "vitest run --coverage --dir src",
+    "release": "semantic-release",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "prepare": "is-ci || husky install"
+  },
+  "dependencies": {
+    "@pinia/testing": "^0.0.14",
+    "@quasar/extras": "^1.15.3",
+    "@vitest/coverage-c8": "^0.23.2",
+    "axios": "^0.27.2",
+    "connect-history-api-fallback": "^2.0.0",
+    "express": "^4.18.1",
+    "lodash": "^4.17.21",
+    "pinia": "^2.0.22",
+    "quasar": "^2.8.3",
+    "serve-static": "^1.15.0",
+    "vue": "3.2.39",
+    "vue-formor": "1.0.1",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "4.1.5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@iconify/json": "^2.1.108",
+    "@intlify/vite-plugin-vue-i18n": "^6.0.1",
+    "@quasar/vite-plugin": "^1.2.1",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@tailwindcss/forms": "^0.5.3",
+    "@testing-library/vue": "^6.6.1",
+    "@vitejs/plugin-vue": "^3.1.0",
+    "@vue/compiler-sfc": "^3.2.39",
+    "@vue/test-utils": "^2.0.2",
+    "autoprefixer": "^10.4.11",
+    "coveralls": "3.1.1",
+    "eslint": "^8.23.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier-vue": "^4.2.0",
+    "eslint-plugin-vue": "^9.5.1",
+    "happy-dom": "^6.0.4",
+    "husky": "^8.0.1",
+    "is-ci": "^3.0.1",
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.4.16",
+    "postcss-extend-rule": "^4.0.0",
+    "postcss-import": "^15.0.0",
+    "postcss-nesting": "^10.2.0",
+    "prettier": "^2.7.1",
+    "process-envify": "^1.0.4",
+    "sass": "~1.32.13",
+    "semantic-release": "^19.0.1",
+    "tailwindcss": "^3.1.8",
+    "unplugin-icons": "^0.14.9",
+    "vite": "^3.1.2",
+    "vitest": "^0.23.2"
+  },
+  "engines": {
+    "node": "^16",
+    "npm": ">= 8.19.1"
+  }
+}
