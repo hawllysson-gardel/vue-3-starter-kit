@@ -31,7 +31,7 @@
     "@pinia/testing": "^0.0.14",
     "@quasar/extras": "^1.15.4",
     "@vitest/coverage-c8": "^0.23.2",
-    "axios": "^1.0.0",
+    "axios": "^1.1.2",
     "connect-history-api-fallback": "^2.0.0",
     "express": "^4.18.1",
     "lodash": "^4.17.21",
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@iconify/json": "^2.1.118",
+    "@iconify/json": "^2.1.119",
     "@intlify/vite-plugin-vue-i18n": "^6.0.3",
     "@quasar/vite-plugin": "^1.2.1",
     "@semantic-release/changelog": "^6.0.1",
@@ -62,7 +62,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier-vue": "^4.2.0",
     "eslint-plugin-vue": "^9.6.0",
-    "happy-dom": "^7.0.2",
+    "happy-dom": "^7.3.0",
     "husky": "^8.0.1",
     "is-ci": "^3.0.1",
     "lint-staged": "^13.0.3",
@@ -76,7 +76,7 @@
     "semantic-release": "^19.0.1",
     "tailwindcss": "^3.1.8",
     "unplugin-icons": "^0.14.11",
-    "vite": "^3.1.5",
+    "vite": "^3.1.6",
     "vitest": "^0.23.2"
   },
   "engines": {
