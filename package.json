@@ -77,7 +77,7 @@
     "tailwindcss": "^3.1.8",
     "unplugin-icons": "^0.14.11",
     "vite": "^3.1.8",
-    "vitest": "^0.23.2"
+    "vitest": "^0.24.3"
   },
   "engines": {
     "node": "^16",
