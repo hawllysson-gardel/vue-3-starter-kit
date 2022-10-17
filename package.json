@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@pinia/testing": "^0.0.14",
-    "@quasar/extras": "^1.15.4",
+    "@quasar/extras": "^1.15.5",
     "@vitest/coverage-c8": "^0.24.3",
     "axios": "^1.1.2",
     "connect-history-api-fallback": "^2.0.0",
