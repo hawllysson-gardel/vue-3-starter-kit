@@ -46,7 +46,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@iconify/json": "^2.1.129",
+    "@iconify/json": "^2.1.135",
     "@intlify/vite-plugin-vue-i18n": "^6.0.3",
     "@quasar/vite-plugin": "^1.2.1",
     "@semantic-release/changelog": "^6.0.1",
