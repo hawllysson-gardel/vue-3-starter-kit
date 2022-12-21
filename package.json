@@ -47,7 +47,7 @@
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
     "@iconify/json": "^2.1.141",
-    "@intlify/vite-plugin-vue-i18n": "^6.0.3",
+    "@intlify/vite-plugin-vue-i18n": "^7.0.0",
     "@quasar/vite-plugin": "^1.2.1",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
