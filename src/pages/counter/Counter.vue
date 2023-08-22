@@ -3,7 +3,15 @@ import { useCounterStore } from '../../store/counter/counterStore.js';
 import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n({ useScope: 'local' });
+import enUS from './locales/counter.en-US.json';
+import ptBR from './locales/counter.pt-BR.json';
+
+const { t } = useI18n({
+  messages: {
+    enUS,
+    ptBR,
+  },
+});
 
 const store = useCounterStore();
 const { decrement, increment } = store;
@@ -42,5 +50,3 @@ const { counter, prevCounter } = storeToRefs(store);
   </button>
 </template>
 
-<i18n locale="enUS" src="./locales/counter.en-US.json"></i18n>
-<i18n locale="ptBR" src="./locales/counter.pt-BR.json"></i18n>

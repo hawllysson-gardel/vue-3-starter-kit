@@ -1,6 +1,8 @@
 <script setup>
 import { reactive, computed } from 'vue';
-import { useValidator, useValidation } from 'vue-formor';
+
+import { useVuelidate } from '@vuelidate/core';
+import { required, minLength, requiredIf } from '@vuelidate/validators';
 
 const state = reactive({
   form: {
@@ -9,35 +11,32 @@ const state = reactive({
     thirdField: '',
   },
   thirdRules: [],
-  errors: {},
 });
 
-const validator = useValidator();
+const rules = computed(() => {
+  const localRules = {
+    form: {
+      firstField: { required },
+      secondField: { requiredIfFormFirstField: requiredIf(state.form.firstField === 'volvo') },
+      thirdField: { ...state.thirdRules },
+    },
+  };
 
-const validation = useValidation(
-  [
-    [computed(() => state.form.firstField), [validator.required]],
-    [
-      computed(() => state.form.secondField),
-      computed(() => (state.form.firstField === 'volvo' ? [validator.required] : [])),
-    ],
-    [computed(() => state.form.thirdField), computed(() => state.thirdRules)],
-  ],
-  state,
-);
+  return localRules;
+});
+
+const v$ = useVuelidate(rules, state);
 
 const changeSecondField = (event) => {
   if (event.target.value.length > 1) {
-    state.thirdRules = [validator.required, validator.minLength(2)];
+    state.thirdRules = [required, minLength(2)];
   } else {
     state.thirdRules = [];
   }
 };
 
-const submit = () => {
-  if (validation.validate()) {
-    console.log('Submit');
-  }
+const submit = async () => {
+  await v$.value.$validate();
 };
 </script>
 
@@ -53,7 +52,9 @@ const submit = () => {
         <option value="mercedes">Mercedes</option>
         <option value="audi">Audi</option>
       </select>
-      <div class="tw-text-red-500">{{ state.errors['form.firstField'] }}</div>
+      <div v-for="error of v$.form.firstField.$errors" :key="error.$uid" class="tw-text-red-500">
+        {{ error.$message }}
+      </div>
     </div>
 
     <div>
@@ -65,7 +66,9 @@ const submit = () => {
         class="tw-border"
         @input="changeSecondField"
       />
-      <div class="tw-text-red-500">{{ state.errors['form.secondField'] }}</div>
+      <div v-for="error of v$.form.secondField.$errors" :key="error.$uid" class="tw-text-red-500">
+        {{ error.$message }}
+      </div>
     </div>
 
     <div>
@@ -76,7 +79,9 @@ const submit = () => {
         type="text"
         class="tw-border"
       />
-      <div class="tw-text-red-500">{{ state.errors['form.thirdField'] }}</div>
+      <div v-for="error of v$.form.thirdField.$errors" :key="error.$uid" class="tw-text-red-500">
+        {{ error.$message }}
+      </div>
     </div>
 
     <div>

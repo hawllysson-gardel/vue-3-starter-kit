@@ -8,7 +8,7 @@ Boilerplate para Vue 3 usado para novos projetos com alto padrão de qualidade d
   - [Vue 3](https://github.com/vuejs/core);
     - [Vue Router](https://github.com/vuejs/vue-router);
     - Nova Sintaxe [`<script setup>` ](https://github.com/vuejs/rfcs/pull/227) para Vue 3;
-    - [Vue Formor](https://github.com/Vanilla-IceCream/vue-formor);
+    - [Vuelidate](https://vuelidate-next.netlify.app/);
     - [Vue i18n](https://kazupon.github.io/vue-i18n/);
   - [Vite](https://vitejs.dev/);
   - [Pinia](https://pinia.vuejs.org/);
@@ -17,8 +17,6 @@ Boilerplate para Vue 3 usado para novos projetos com alto padrão de qualidade d
   - [Prettier](https://prettier.io/);
   - [Dependabot](https://github.com/dependabot);
   - [GitHub Actions](https://github.com/features/actions);
-  - [Netlify](https://www.netlify.com/);
-  - [Heroku](https://www.heroku.com/home);
   - [Husky](https://typicode.github.io/husky/#/);
   - [Commitlint](https://github.com/conventional-changelog/commitlint);
   - [Semantic Release](https://github.com/semantic-release/semantic-release);
@@ -36,14 +34,14 @@ Boilerplate para Vue 3 usado para novos projetos com alto padrão de qualidade d
 ## Dependências
 - ### Node
   ```sh
-  ^16.17.0
+  ~20.5.1
   ```
 
 <br>
 
 - ### NPM
   ```sh
-  ^8.19.1
+  ~9.8.0
   ```
 
 <br>
@@ -101,13 +99,6 @@ Boilerplate para Vue 3 usado para novos projetos com alto padrão de qualidade d
 - ### Buildar para Produção
   ```sh
   npm run build
-  ```
-
-<br>
-
-- ### Subir Servidor de Produção
-  ```sh
-  npm run start
   ```
 
 <br>

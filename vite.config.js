@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import envify from 'process-envify';
 import { quasar, transformAssetUrls } from '@quasar/vite-plugin';
 import Icons from 'unplugin-icons/vite';
-import vueI18n from '@intlify/vite-plugin-vue-i18n';
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 import env from './env';
 
@@ -21,8 +21,8 @@ export default defineConfig({
       compiler: 'vue3',
       autoInstall: true,
     }),
-    vueI18n({
-      include: path.resolve(__dirname, './src/locales/**'),
+    VueI18nPlugin({
+      include: [path.resolve(__dirname, './src/locales/**')],
     }),
   ],
   resolve: {
