@@ -70,7 +70,7 @@
     "postcss-nesting": "^12.0.1",
     "prettier": "^3.0.2",
     "process-envify": "^2.0.0",
-    "sass": "~1.32.13",
+    "sass": "~1.66.1",
     "semantic-release": "^21.0.7",
     "tailwindcss": "^3.3.3",
     "unplugin-icons": "^0.16.5",
