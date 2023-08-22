@@ -1,48 +1,42 @@
 <script setup>
 import { reactive, computed, onMounted } from 'vue';
-import { useValidator, useValidation } from 'vue-formor';
+
+import { useVuelidate } from '@vuelidate/core';
+import { required, helpers } from '@vuelidate/validators';
 
 const state = reactive({
   table: [],
-  errors: {},
 });
 
-const validator = useValidator();
+const rules = computed(() => {
+  const localRules = {
+    table: {
+      $each: helpers.forEach({
+        firstField: { required },
+        secondField: { required },
+      }),
+    },
+  };
 
-const validation = useValidation(
-  [
-    [computed(() => state.table), [validator.required]],
-    [
-      computed(() => state.table),
-      (row, _idx) => [
-        [computed(() => row.firstField), [validator.required]],
-        [computed(() => row.secondField), [validator.required]],
-      ],
-    ],
-  ],
-  state,
-);
+  return localRules;
+});
 
 onMounted(() => {
   state.table = [{ firstField: '', secondField: '' }];
 });
 
-const add = () => {
-  const arr = [...state.table];
-  arr.push({ firstField: '', secondField: '' });
-  state.table = arr;
+const addRow = () => {
+  state.table.push({ firstField: '', secondField: '' });
 };
 
-const remove = (idx) => {
-  const arr = [...state.table];
-  arr.splice(idx, 1);
-  state.table = arr;
+const removeRow = (idx) => {
+  state.table.splice(idx, 1);
 };
 
-const submit = () => {
-  if (validation.validate()) {
-    console.log('Submit');
-  }
+const v$ = useVuelidate(rules, state);
+
+const submit = async () => {
+  await v$.value.$validate();
 };
 </script>
 
@@ -52,7 +46,7 @@ const submit = () => {
 
     <button
       class="tw-bg-blue-500 hover:tw-bg-blue-700 tw-text-white tw-px-4 tw-py-1 tw-rounded"
-      @click="add"
+      @click="addRow"
     >
       Add
     </button>
@@ -61,16 +55,28 @@ const submit = () => {
       <tr v-for="(row, idx) in state.table" :key="idx">
         <td>
           <input v-model="row.firstField" class="tw-border" />
-          <div class="tw-text-red-500">{{ state.errors[`table[${idx}].firstField`] }}</div>
+          <div
+            v-for="error of v$.table.$each.$response.$errors[idx].firstField"
+            :key="error"
+            class="tw-text-red-500"
+          >
+            {{ error.$message }}
+          </div>
         </td>
         <td>
           <input v-model="row.secondField" class="tw-border" />
-          <div class="tw-text-red-500">{{ state.errors[`table[${idx}].secondField`] }}</div>
+          <div
+            v-for="error of v$.table.$each.$response.$errors[idx].secondField"
+            :key="error"
+            class="tw-text-red-500"
+          >
+            {{ error.$message }}
+          </div>
         </td>
         <td>
           <button
             class="tw-bg-red-500 hover:tw-bg-red-700 tw-text-white tw-px-4 tw-py-1 tw-rounded"
-            @click="remove(idx)"
+            @click="removeRow(idx)"
           >
             Remove
           </button>
