@@ -32,7 +32,7 @@
     "@vitest/coverage-v8": "^0.34.2",
     "@vuelidate/core": "^2.0.3",
     "@vuelidate/validators": "^2.0.3",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "lodash": "^4.17.21",
     "pinia": "^2.1.6",
     "quasar": "^2.12.5",
@@ -74,7 +74,7 @@
     "semantic-release": "^21.0.7",
     "tailwindcss": "^3.3.3",
     "unplugin-icons": "^0.16.5",
-    "vite": "^4.4.9",
+    "vite": "^4.5.3",
     "vitest": "^0.34.2"
   },
   "engines": {
