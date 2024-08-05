@@ -57,7 +57,7 @@
     "autoprefixer": "^10.4.19",
     "coveralls": "3.1.1",
     "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier-vue": "^5.0.0",
     "eslint-plugin-vue": "^9.17.0",
     "happy-dom": "^12.7.0",
